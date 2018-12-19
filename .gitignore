@@ -1,0 +1,7 @@
+.idea
+test.card
+dist
+build
+node_modules
+.nyc_output
+package-lock.json
