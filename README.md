@@ -142,6 +142,33 @@ Then we upgrade to the new version:
 $ composer network upgrade -c PeerAdmin@hlfv1 -n test-bna -V 0.0.4
 $ composer network ping -c admin@test-bna
 ```
+## Starting Composer Rest Server
+With the Rest server you can do CRUD operations and invoke transactions. 
+```commandline   
+$ composer-rest-server -c admin@test-bna -p 3000 --explorer
+```
+### Starting the REST server with multiple user mode enabled
+[Enabling multiuser](https://hyperledger.github.io/composer/v0.16/integrating/enabling-multiuser)
+
+```commandline
+$  composer-rest-server -c admin@test-bna -p 3000 --explorer -m true
+```
+Enabling HTTPS and TLS by using the sample certificate and private key pair
+```commandline
+$ composer-rest-server -c admin@test-bna -p 3000 --explorer -m true -t
+$ composer-rest-server -c admin@test-bna -p 3000 --explorer -m true -t -e /tmp/cert.pem -k /tmp/key.pem
+```
+
+## Creating an Angular app against the composer rest server
+```commandline
+$ yo hyperledger-composer:angular
+
+$ cd angular-test/
+$ npm install
+$ npm test
+$ npm start
+
+```
 
 ## Check these projects!
 * [Serverless Hyperledger](https://github.com/mataide/serverless-hyperledger#readme)
